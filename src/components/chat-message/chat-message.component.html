@@ -1,0 +1,16 @@
+<!-- displays message send from user-input -->
+<div *ngIf="messageType == 'send'">
+    <div class="card message-card-send">
+        <a>{{ messageValue }}</a>    
+    </div>
+    <a class="message-time-send">You @ {{ messageTime }}</a>
+</div>
+
+<!-- displays receiving messages -->
+<div *ngIf="messageType == 'received'">
+    <div class="card message-card-received">
+        <a>{{ messageValue }}</a>
+    </div>
+    <a class="message-time-received">Bot @ {{ messageTime }}</a>
+</div>
+

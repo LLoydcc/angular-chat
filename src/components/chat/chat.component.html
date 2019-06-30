@@ -1,0 +1,50 @@
+<!-- displays the chat-window after the chat-button get's clicked. -->
+<div class="collapse" id="chat-window">
+    <div class="card chat-window-card">        
+        <div class="header">
+            <div class="row">
+                <fa-icon [icon]="['fa', 'user-circle']" class="icon-profile"></fa-icon>
+                <a>James</a>
+                <fa-icon [icon]="['fa', 'times']" 
+                         class="icon-times" 
+                         role="button" 
+                         data-toggle="collapse" 
+                         data-target="#chat-window" 
+                         aria-expanded="false" 
+                         aria-controls="chat-window"></fa-icon>
+            </div>                
+        </div>
+        <div class="content">
+            <div class="card chat-message-card">                
+                <app-chat-message *ngFor="let message of messages" 
+                                  [message]="message.content" 
+                                  [messageType]="message.type"></app-chat-message>                
+            </div>
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <input type="text" 
+                       class="chat-input" 
+                       placeholder="Type your Message here .." 
+                       name="message"
+                       autocomplete="off" 
+                       ngModel>
+            </form>            
+        </div>                       
+    </div>
+</div>
+
+
+<!-- displays the chat-button at the right hand side lower corner.
+     The button can be clicked, to collapse the chat-window.-->
+<div class="chat-button" 
+     role="button" 
+     data-toggle="collapse" 
+     data-target="#chat-window" 
+     aria-expanded="false" 
+     aria-controls="chat-window">
+
+    <div class="row">
+        <div><fa-icon [icon]="['fa', 'comment-dots']" class="icon-chat"></fa-icon></div>
+        <div><a>Chat</a></div>
+        <div> <fa-icon [icon]="['fa', 'circle']" class="icon-status"></fa-icon></div>   
+    </div>        
+</div>

@@ -1,0 +1,33 @@
+/* #### send #### */
+
+.message-card-send{      
+    height: auto;     
+    padding: 5px;
+    margin: 5px 5px 0 15px;
+    border: 1px solid #ADD8E6;
+}
+
+.message-time-send{
+    float: right;
+    margin-right: 5px;
+    color:#BEBEBE !important;
+    font-size: 12px;
+}
+
+
+
+/* #### received #### */
+
+.message-card-received{    
+    height: auto;    
+    margin: 5px 15px 0 5px;
+    padding: 5px;
+    border: 1px solid #F08080;
+}
+
+.message-time-received{
+    float: left;
+    margin-left: 5px;
+    color:#BEBEBE !important;
+    font-size: 12px;
+}

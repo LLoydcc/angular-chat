@@ -11,6 +11,7 @@ import { ChatMessageComponent } from '../chat-message/chat-message.component';
 export class ChatComponent{    
     messages: Array<Message> = [];
     uploadImage: string = '';
+    messageInputValue: string = '';
 
     /** function gets called if user pressed enter. The text from the input
      *  field is passed into the messages array with the type 'send'.
@@ -28,6 +29,7 @@ export class ChatComponent{
             transmission: 'send'
         };
         this.messages.push(message); 
+        this.messageInputValue = '';
         
         var receivingMessage: Message = {
             content: 'Moin moin, du Eumelgesicht!',
@@ -40,18 +42,19 @@ export class ChatComponent{
     /** handles if an image is added to the conversation over the image upload
      *  button.  
      */
-    onImageUpload(file){              
+    onImageUpload(file){    
+        console.log(file);          
         var reader = new FileReader();   
         var message: Message = {
             content: '',
             type: 'image', 
             transmission: 'send'
-        }; 
+        };         
 
         reader.onload = (function(file){
-            message.content = String(reader.result);            
+            message.content = String(reader.result);                         
         });
-        
+                
         this.messages.push(message);
         reader.readAsDataURL(file);                                  
     }

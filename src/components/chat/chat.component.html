@@ -14,20 +14,31 @@
                          aria-controls="chat-window"></fa-icon>
             </div>                
         </div>
-        <div class="content">
+        <div class="content">            
             <div class="card chat-message-card">                
                 <app-chat-message *ngFor="let message of messages" 
                                   [message]="message.content" 
+                                  [messageTransmission]="message.transmission"
                                   [messageType]="message.type"></app-chat-message>                
             </div>
-            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-                <input type="text" 
-                       class="chat-input" 
-                       placeholder="Type your Message here .." 
-                       name="message"
-                       autocomplete="off" 
-                       ngModel>
-            </form>            
+            <div class="row">
+                <div class="col-auto d-flex align-items-center">      
+                    <label for="file-input">
+                        <fa-icon [icon]="['fa', 'image']" class="icon-image"></fa-icon>
+                    </label>                                  
+                    <input #file type="file" id="file-input" (change)="onImageUpload(file.files[0])"/>
+                </div>
+                <div class="col">
+                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                            <input type="text" 
+                                class="chat-input" 
+                                placeholder="Type your Message here .." 
+                                name="message"
+                                autocomplete="off" 
+                                ngModel>
+                    </form>            
+                </div>                
+            </div>
         </div>                       
     </div>
 </div>

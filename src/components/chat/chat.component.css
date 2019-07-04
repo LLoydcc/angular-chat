@@ -4,6 +4,19 @@
     margin: 0;
 }
 
+.col{
+    padding: 0;
+}
+
+.col-auto{
+    padding-left: 0;
+    padding-right: 10px;
+}
+
+label{
+    margin: 0;
+}
+
 
 
 /* #### outer chat #### */
@@ -69,9 +82,15 @@
     width: 100%;
 }
 
+#file-input{
+    display: none;
+}
 
 
 /* #### icons #### */
+fa-icon{
+    color:#989898;
+}
 
 .icon-times{
     display: inline-block;
@@ -87,8 +106,7 @@
 
 .icon-chat{  
     margin: 0 15px 0 5px;     
-    font-size: 20px;
-    color:#989898;
+    font-size: 20px;    
 }
 
 .icon-status{   
@@ -96,6 +114,11 @@
     margin: 9px 0 0 125px;     
     font-size: 10px;
     color: green;
+}
+
+.icon-image{
+    font-size: 20px;
+    cursor: pointer;
 }
 
 

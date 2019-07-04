@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 /** fontawesome */
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCommentDots, faCircle, faUserCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCommentDots, faCircle, faUserCircle, faTimes, faImage } from '@fortawesome/free-solid-svg-icons';
 
 /** components */
 import { AppComponent } from './app.component';
@@ -44,6 +44,6 @@ export class AppModule {
   constructor(){
 
       /** Fontawesome imports need to be added to library over here. */
-      library.add(faCommentDots, faCircle, faUserCircle, faTimes);
+      library.add(faCommentDots, faCircle, faUserCircle, faTimes, faImage);
     }
  }

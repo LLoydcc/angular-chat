@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ChatMessageComponent } from '../chat-message/chat-message.component';
 
@@ -10,6 +10,7 @@ import { ChatMessageComponent } from '../chat-message/chat-message.component';
 
 export class ChatComponent{    
     messages: Array<Message> = [];
+    uploadImage: string = '';
 
     /** function gets called if user pressed enter. The text from the input
      *  field is passed into the messages array with the type 'send'.
@@ -23,15 +24,36 @@ export class ChatComponent{
     onSubmit(f: NgForm){         
         var message: Message = {
             content: f.value.message,
-            type: 'send'
+            type: 'text',
+            transmission: 'send'
         };
         this.messages.push(message); 
         
         var receivingMessage: Message = {
             content: 'Moin moin, du Eumelgesicht!',
-            type: 'received'
+            type: 'text',
+            transmission: 'received'
         };
         this.messages.push(receivingMessage);
+    }
+
+    /** handles if an image is added to the conversation over the image upload
+     *  button.  
+     */
+    onImageUpload(file){              
+        var reader = new FileReader();   
+        var message: Message = {
+            content: '',
+            type: 'image', 
+            transmission: 'send'
+        }; 
+
+        reader.onload = (function(file){
+            message.content = String(reader.result);            
+        });
+        
+        this.messages.push(message);
+        reader.readAsDataURL(file);                                  
     }
 }
 
@@ -39,4 +61,5 @@ export class ChatComponent{
 class Message{    
     content: string;
     type: string;
+    transmission: string;
 }

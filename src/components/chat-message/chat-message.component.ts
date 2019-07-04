@@ -8,14 +8,18 @@ import { Component, Input } from '@angular/core';
 export class ChatMessageComponent{
 
     /** over here the component is listening for Inputs with the value
-     *  'message' and 'messageType'. These Input fields can be declared as 
+     *  'message' and 'messageTransmission'. These Input fields can be declared as 
      *  properties of a chat-message.component and the corresponding
      *  values will right arrive here. 
      *   
      * 'message' is the text context of the message. 
-     * 'messageType' gives information if the message is send or received.
+     * 'messageTransmission' gives information if the message is send or received.
+     * 'messageType' is set to 'image' or 'text'. If 'image' is selected, 
+     * a picture will be displayed in the chat window. 'text' handles the input, if it's
+     * a normal text message. 
      */
-    @Input ('message') messageValue: string;
+    @Input ('message') messageContent: string;
+    @Input ('messageTransmission') messageTransmission: string;
     @Input ('messageType') messageType: string;
     messageTime: string;
     
